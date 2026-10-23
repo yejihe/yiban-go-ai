@@ -63,24 +63,24 @@ export const MobileTabBar: React.FC<MobileTabBarProps> = ({
   const tabs: TabConfig[] = [
     {
       id: 'board',
-      label: 'Board',
+      label: '棋盘',
       icon: <FaThLarge size={18} />,
     },
     {
       id: 'tree',
-      label: 'Tree',
+      label: '棋谱',
       icon: <FaProjectDiagram size={18} />,
     },
     {
       id: 'info',
-      label: 'Review',
+      label: '复盘',
       icon: <FaInfoCircle size={18} />,
     },
   ];
 
   tabs.push({
     id: 'library',
-    label: 'Library',
+    label: '棋谱库',
     icon: <FaBook size={18} />,
   });
 
@@ -92,7 +92,7 @@ export const MobileTabBar: React.FC<MobileTabBarProps> = ({
         'w-full mobile-tabbar transition-colors',
         hasControlBarAbove ? 'bg-transparent' : 'ui-bar border-t border-[var(--ui-border)]'
       ].filter(Boolean).join(' ')}
-      aria-label="Main sections"
+      aria-label="主要功能"
     >
       {/* The tablist sits inside the nav: on the nav itself the role replaced
           the navigation landmark, so the tab bar was in no landmark at all. */}
@@ -100,7 +100,7 @@ export const MobileTabBar: React.FC<MobileTabBarProps> = ({
         className="grid mobile-tabbar-grid"
         style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
         role="tablist"
-        aria-label="Main sections"
+        aria-label="主要功能"
         onKeyDown={handleTabListKeyDown}
       >
         {tabs.map((tab) => {
@@ -111,7 +111,7 @@ export const MobileTabBar: React.FC<MobileTabBarProps> = ({
           // count rather than the "9+" the 16px circle has room to print.
           const label = badge == null
             ? tab.label
-            : `${tab.label}, ${badge} ${badge === 1 ? 'note' : 'notes'}`;
+            : `${tab.label}，${badge} 条笔记`;
           return (
             <button
               key={tab.id}
