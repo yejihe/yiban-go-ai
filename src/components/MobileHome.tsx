@@ -232,7 +232,7 @@ export const MobileHome: React.FC<MobileHomeProps> = ({
         <header className="ui-bar border-b border-[var(--ui-border)] px-3 py-2">
           <div className="flex min-h-11 items-center justify-between gap-3">
             <div className="min-w-0 flex-1">
-              <h2 id="mobile-home-title" className="truncate text-base font-bold text-[var(--ui-text)]">Web KaTrain</h2>
+              <h2 id="mobile-home-title" className="truncate text-base font-bold text-[var(--ui-text)]">弈伴 AI · 围棋教练</h2>
               <div className="truncate text-xs ui-text-muted">
                 {blackName} vs {whiteName}
               </div>
@@ -263,8 +263,8 @@ export const MobileHome: React.FC<MobileHomeProps> = ({
                 ref={closeButtonRef}
                 className="ui-control grid place-items-center rounded-lg text-[var(--ui-text-muted)] hover:bg-[var(--ui-surface-2)] hover:text-[var(--ui-text)]"
                 onClick={onClose}
-                aria-label="Return to board"
-                title="Return to board"
+                aria-label="返回棋盘"
+                title="返回棋盘"
               >
                 <FaTimes aria-hidden="true" />
               </button>
@@ -283,18 +283,18 @@ export const MobileHome: React.FC<MobileHomeProps> = ({
           <section className="mobile-home-summary border-y border-[var(--ui-border)] py-3">
             <div className="grid grid-cols-3 gap-2 text-center">
               <div className="px-2 py-2">
-                <div className="text-[0.6875rem] uppercase tracking-wide ui-text-faint">Board</div>
+                <div className="text-[0.6875rem] uppercase tracking-wide ui-text-faint">棋盘</div>
                 <div className="mt-1 text-sm font-semibold">{boardSize}×{boardSize}</div>
               </div>
               <div className="border-x border-[var(--ui-border)] px-2 py-2">
-                <div className="text-[0.6875rem] uppercase tracking-wide ui-text-faint">Move</div>
+                <div className="text-[0.6875rem] uppercase tracking-wide ui-text-faint">手数</div>
                 <div className="mt-1 text-sm font-semibold">
                   #{moveCount}
                   {hasGameToContinue ? <span className="ui-text-faint"> / {totalMoveCount}</span> : null}
                 </div>
               </div>
               <div className="px-2 py-2">
-                <div className="text-[0.6875rem] uppercase tracking-wide ui-text-faint">Engine</div>
+                <div className="text-[0.6875rem] uppercase tracking-wide ui-text-faint">引擎</div>
                 <div className="mt-1 truncate text-sm font-semibold">{engineMeta.split(' · ')[0] ?? 'Idle'}</div>
               </div>
             </div>
@@ -302,32 +302,32 @@ export const MobileHome: React.FC<MobileHomeProps> = ({
 
           <section
             className="mobile-home-actions mobile-home-actions--primary mt-3 border-y border-[var(--ui-border)]"
-            aria-label="Start or continue"
+            aria-label="开始或继续对弈"
           >
             <HomeAction
-              label={hasGameToContinue ? 'Continue board' : 'Open board'}
-              compactLabel={hasGameToContinue ? 'Continue' : 'Board'}
+              label={hasGameToContinue ? '继续对弈' : '打开棋盘'}
+              compactLabel={hasGameToContinue ? '继续' : '棋盘'}
               icon={<FaThLarge />}
               onClick={onClose}
               primary={hasGameToContinue}
             />
             <HomeAction
-              label="Quick new game"
-              compactLabel="Quick game"
+              label="快速开始"
+              compactLabel="快速对弈"
               icon={<FaBolt />}
               onClick={onQuickNewGame}
-              hint={`${quickNewGameBoardSize}×${quickNewGameBoardSize} defaults`}
+              hint={`${quickNewGameBoardSize}×${quickNewGameBoardSize} 默认设置`}
               title={quickNewGameWarning}
               ariaLabel={quickNewGameWarning}
               primary={!hasGameToContinue}
             />
-            <HomeAction label="New game" compactLabel="New game" icon={<FaPlay />} onClick={onNewGame} />
+            <HomeAction label="新建对局" compactLabel="新对局" icon={<FaPlay />} onClick={onNewGame} />
             {onLessons && (
-              <HomeAction label="Learn Go" compactLabel="Learn Go" icon={<FaGraduationCap />} onClick={onLessons} hint="Captures, life and openings" />
+              <HomeAction label="围棋入门" compactLabel="围棋学习" icon={<FaGraduationCap />} onClick={onLessons} hint="提子、死活与布局" />
             )}
-            <HomeAction label="Open game / model" compactLabel="Open game" icon={<FaFolderOpen />} onClick={onOpenSgf} />
-            <HomeAction label="Photo Board" compactLabel="Photo Board" icon={<FaCamera />} onClick={onScanBoard} hint="Camera or image" />
-            <HomeAction label="Paste SGF / OGS" compactLabel="Paste SGF" icon={<FaClipboard />} onClick={onPasteSgf} />
+            <HomeAction label="导入棋谱或模型" compactLabel="导入棋谱" icon={<FaFolderOpen />} onClick={onOpenSgf} />
+            <HomeAction label="拍照识别棋盘" compactLabel="拍照识别" icon={<FaCamera />} onClick={onScanBoard} hint="使用相机或图片" />
+            <HomeAction label="粘贴棋谱 / OGS" compactLabel="粘贴棋谱" icon={<FaClipboard />} onClick={onPasteSgf} />
           </section>
 
           {recentItems.length > 0 && (
@@ -357,16 +357,16 @@ export const MobileHome: React.FC<MobileHomeProps> = ({
           )}
 
           <section className="mobile-home-manage mt-4">
-            <div className="mb-2 px-1 text-xs font-semibold uppercase tracking-wide ui-text-faint">Manage</div>
+            <div className="mb-2 px-1 text-xs font-semibold uppercase tracking-wide ui-text-faint">管理</div>
             <div
               className="mobile-home-actions mobile-home-actions--secondary border-y border-[var(--ui-border)]"
-              aria-label="Manage game and app"
+              aria-label="管理棋局与应用"
             >
-              <HomeAction label="Save copy to library" compactLabel="Save copy" icon={<FaSave />} onClick={onSaveToLibrary} />
-              <HomeAction label="Copy SGF" compactLabel="Copy SGF" icon={<FaCopy />} onClick={onCopySgf} />
-              <HomeAction label="Game library" compactLabel="Library" icon={<FaBook />} onClick={onOpenLibrary} />
-              <HomeAction label="Game report" compactLabel="Report" icon={<FaChartLine />} onClick={onOpenReport} />
-              <HomeAction label="Settings" compactLabel="Settings" icon={<FaCog />} onClick={onOpenSettings} />
+              <HomeAction label="保存到棋谱库" compactLabel="保存棋谱" icon={<FaSave />} onClick={onSaveToLibrary} />
+              <HomeAction label="复制 SGF 棋谱" compactLabel="复制棋谱" icon={<FaCopy />} onClick={onCopySgf} />
+              <HomeAction label="棋谱库" compactLabel="棋谱库" icon={<FaBook />} onClick={onOpenLibrary} />
+              <HomeAction label="对局复盘报告" compactLabel="复盘报告" icon={<FaChartLine />} onClick={onOpenReport} />
+              <HomeAction label="设置" compactLabel="设置" icon={<FaCog />} onClick={onOpenSettings} />
             </div>
           </section>
         </div>
