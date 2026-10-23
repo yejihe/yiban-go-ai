@@ -249,7 +249,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
               focusInputMode === 'pointer' ? 'menu-drawer-pointer-focus' : '',
             ].join(' ')}
             onClick={onClose}
-            aria-label="Close menu"
+            aria-label="关闭菜单"
           >
             <FaTimes aria-hidden="true" />
           </button>
@@ -257,7 +257,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
 
         <nav className="space-y-4" aria-label="Main menu" data-menu-nav="true">
           <div>
-            <div className="px-3 text-xs uppercase tracking-wide ui-text-faint mb-2">Game</div>
+            <div className="px-3 text-xs uppercase tracking-wide ui-text-faint mb-2">对弈</div>
             <div className={menuActionGrid} data-menu-action-grid="game">
               {onHome && (
                 <button
@@ -270,7 +270,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                   aria-label="Open home"
                 >
                   <span className="flex items-center gap-2">
-                    <FaHome aria-hidden="true" /> Home
+                    <FaHome aria-hidden="true" /> 首页
                   </span>
                 </button>
               )}
@@ -285,7 +285,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 title={quickNewGameWarning}
               >
                 <span className="flex min-w-0 items-center gap-2">
-                  <FaBolt className="shrink-0" aria-hidden="true" /> Quick New Game
+                  <FaBolt className="shrink-0" aria-hidden="true" /> 快速开始
                 </span>
                 <span className="mobile-shortcut-hint text-xs ui-text-faint">Defaults</span>
               </button>
@@ -299,7 +299,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 aria-label={`New game, keyboard shortcut ${shortcutLabels['new-game']}`}
               >
                 <span className="flex min-w-0 items-center gap-2">
-                  <FaPlay className="shrink-0" aria-hidden="true" /> New Game
+                  <FaPlay className="shrink-0" aria-hidden="true" /> 新建对局
                 </span>
                 <kbd className="mobile-shortcut-hint text-xs ui-text-faint">{shortcutLabels['new-game']}</kbd>
               </button>
@@ -327,7 +327,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 aria-label={`Save a copy to Library, keyboard shortcut ${shortcutLabels['save-library']}`}
               >
                 <span className="flex min-w-0 items-center gap-2">
-                  <FaBook className="shrink-0" aria-hidden="true" /> Save Copy to Library
+                  <FaBook className="shrink-0" aria-hidden="true" /> 保存到棋谱库
                 </span>
                 <kbd className="mobile-shortcut-hint text-xs ui-text-faint">{shortcutLabels['save-library']}</kbd>
               </button>
@@ -341,7 +341,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 aria-label={`Open SGF file or model weights, keyboard shortcut ${shortcutLabels['open-sgf']}`}
               >
                 <span className="flex min-w-0 items-center gap-2">
-                  <FaFolderOpen className="shrink-0" aria-hidden="true" /> Open SGF / Model
+                  <FaFolderOpen className="shrink-0" aria-hidden="true" /> 导入棋谱 / 模型
                 </span>
                 <kbd className="mobile-shortcut-hint text-xs ui-text-faint">{shortcutLabels['open-sgf']}</kbd>
               </button>
@@ -355,13 +355,13 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 aria-label="Open photo board"
               >
                 <span className="flex min-w-0 items-center gap-2">
-                  <FaCamera className="shrink-0" aria-hidden="true" /> Photo Board
+                  <FaCamera className="shrink-0" aria-hidden="true" /> 拍照识别棋盘
                 </span>
               </button>
             </div>
           </div>
           <div>
-            <div className="px-3 text-xs uppercase tracking-wide ui-text-faint mb-2">Edit</div>
+            <div className="px-3 text-xs uppercase tracking-wide ui-text-faint mb-2">编辑</div>
             <div className={menuActionGrid} data-menu-action-grid="edit">
               <button
                 type="button"
@@ -373,7 +373,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 aria-label={`Copy SGF, keyboard shortcut ${shortcutLabels['copy-sgf']}`}
               >
                 <span className="flex items-center gap-2">
-                  <FaCopy aria-hidden="true" /> Copy SGF
+                  <FaCopy aria-hidden="true" /> 复制棋谱
                 </span>
                 <kbd className="mobile-shortcut-hint text-xs ui-text-faint">{shortcutLabels['copy-sgf']}</kbd>
               </button>
@@ -387,7 +387,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                 aria-label={`Paste SGF or OGS URL, keyboard shortcut ${shortcutLabels['paste-sgf']}`}
               >
                 <span className="flex items-center gap-2">
-                  <FaPaste aria-hidden="true" /> Paste SGF / OGS
+                  <FaPaste aria-hidden="true" /> 粘贴 SGF / OGS
                 </span>
                 <kbd className="mobile-shortcut-hint text-xs ui-text-faint">{shortcutLabels['paste-sgf']}</kbd>
               </button>
